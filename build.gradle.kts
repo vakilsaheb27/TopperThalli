@@ -1,17 +1,30 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
+plugins {
+    id("com.android.application")
+    kotlin("android")
+}
+
+android {
+    namespace = "com.example.messapp"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.messapp"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
     }
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.5.0")
-        classpath(kotlin("gradle-plugin", version = "1.9.25"))
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+        }
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+dependencies {
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
 }
